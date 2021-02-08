@@ -39,7 +39,7 @@ stages:
       artifactName: $(flywayartifactName)
       vmImage: $(flywayVmImage)
       containerImage: $(flywayContainerImage)
-      environmentName: DEV
+      environmentName: SF_DEV
 
 - stage: QA
   variables:
@@ -54,7 +54,7 @@ stages:
       artifactName: $(flywayartifactName)
       vmImage: $(flywayVmImage)
       containerImage: $(flywayContainerImage)
-      environmentName: QA
+      environmentName: SF_QA
 
 - stage: PROD
   variables:
@@ -69,4 +69,4 @@ stages:
       artifactName: $(flywayartifactName)
       vmImage: $(flywayVmImage)
       containerImage: $(flywayContainerImage)
-      environmentName: PROD
+      environmentName: SF_PROD
