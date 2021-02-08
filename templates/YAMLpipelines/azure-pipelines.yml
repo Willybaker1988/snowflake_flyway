@@ -1,7 +1,7 @@
 variables:
 - group: Snowflake.Database
 - name: DBNAME
-  value: flyway_demo
+  value: SURVEY
 - name: flywayartifactName
   value: DatabaseArtifacts  
 - name: flywayVmImage
@@ -59,7 +59,7 @@ stages:
 - stage: PROD
   variables:
   - name: DBNAME_POSTFIX
-    value: '' # Empty string for PROD
+    value: _PROD
   jobs:
   - template: templates/snowflakeFlywayDeploy.yml
     parameters:
