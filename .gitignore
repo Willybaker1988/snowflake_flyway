@@ -105,6 +105,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.vscode
 env/
 venv/
 ENV/
@@ -132,3 +133,5 @@ dmypy.json
 docs/
 local/
 flyway.conf
+.vscode
+app.log

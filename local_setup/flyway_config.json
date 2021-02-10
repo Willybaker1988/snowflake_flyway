@@ -1,5 +1,6 @@
 {
-    "snowflake_user":"WILL_BAKER",
-    "snowflake_password":"mypasswords!",
-    "snowflake_role":"SYSADMIN"
+    "SF_USER":"USERNAME",
+    "SF_PWD":"PWD",
+    "SF_ROLE":"SYSADMIN",
+    "SF_WH":"LOAD_WH"
 }
