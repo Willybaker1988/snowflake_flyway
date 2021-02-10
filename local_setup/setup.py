@@ -36,7 +36,7 @@ URL = "flyway.url=jdbc:snowflake://{}.com/?db={}&warehouse={}&role={}&authentica
 
 flyway_conf = """
 # Long properties can be split over multiple lines by ending each line with a backslash
-flyway.locations=filesystem:databases/survey
+flyway.locations=filesystem:databases/SURVEY
 flyway.user={}
 flyway.password={}
 flyway.defaultSchema={}
