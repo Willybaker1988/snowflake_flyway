@@ -39,9 +39,8 @@ flyway_conf = """
 flyway.locations=filesystem:databases/survey_demo
 flyway.user={}
 flyway.password={}
-flyway.schema={}
+flyway.defaultSchema={}
 flyway.url={}
-# flyway.url=jdbc:snowflake://bigdatasolutions.west-europe.azure.snowflakecomputing.com/?db=SURVEY_DEV&warehouse=LOAD_WH&role=SYSADMIN&authenticator=snowflake
 """.format(SNOWFLAKE_USER,SNOWFLAKE_PWD,SNOWFLAKE_SCHEMA,URL)
 
 # Auth to create Snowflake Cursor.
