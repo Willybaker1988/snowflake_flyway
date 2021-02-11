@@ -27,7 +27,7 @@ CONCAT = "SNOWFLAKE_USER: {}/n SNOWFLAKE_PWD: {}/n".format(
 
 CLONE_DEV_DATABASE = SNOWFLAKE_USER + '_DEV'
 
-URL = "flyway.url=jdbc:snowflake://{}.com/?db={}&warehouse={}&role={}&authenticator=snowflake".format(
+URL = "jdbc:snowflake://{}.snowflakecomputing.com/?db={}&warehouse={}&role={}&authenticator=snowflake".format(
             SNOWFLAKE_ACCOUNT,
             CLONE_DEV_DATABASE,
             SNOWFLAKE_WH,
@@ -39,9 +39,8 @@ flyway_conf = """
 flyway.locations=filesystem:databases/SURVEY
 flyway.user={}
 flyway.password={}
-flyway.defaultSchema={}
 flyway.url={}
-""".format(SNOWFLAKE_USER,SNOWFLAKE_PWD,SNOWFLAKE_SCHEMA,URL)
+""".format(SNOWFLAKE_USER,SNOWFLAKE_PWD,URL)
 
 # Auth to create Snowflake Cursor.
 def auth():
@@ -60,13 +59,6 @@ def create_flyway_conf(path, filename, contents):
     f = open(dir_path + filename,"w+")
     f.write(contents)
     f.close()
-
-
-"""
-f = open(dir_path + "flyway.conf","w+")
-f.write(flyway_conf)
-f.close() 
-"""
 
 
 def main():
