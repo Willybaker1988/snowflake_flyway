@@ -1,38 +1,39 @@
 # Introduction
-This repository contains two things.
+This repository contains three things.
 
-* Sample flyway migration script for database "flyway_demo".
+* Sample flyway migration script for database "SURVEY".
 * Common modules that can be used to set up Azure DevOps pipeline for Snowflake deployment using flyway.
+* local setup configuration for configuring flyway and snowflake development environment locally.
 
-
-Refer to the below page for Step-by-Step instructions on how to use this.
-
-[Snowflake CI/CD using Flyway and Azure DevOps Pipeline](/docs/index.md)
+Read about this approach here [Snowflake CI/CD using Flyway and Azure DevOps Pipeline](https://github.com/kulmam92/snowflake_flyway/blob/master/docs/index.md)
 
 # Getting Started
 The below are incldued files.
 ```
+
+├── LICENSE           
+└── CICD
+│    ├── README.md
+│    └── templates
+│        ├── azure-pipelines.yml             <- YAML pipeline script
+│        └── templates
+│            ├── snowflakeFlywayBuild.yml    <- YAML pipeline template for snowflake build using flyway
+│            ├── snowflakeFlywayBuild.yml    <- YAML pipeline template for snowflake build using flyway          
+│            └── snowflakeFlywayDeploy.yml   <- YAML pipeline template for snowflake deploy using flyway
 ├── README.md
 ├── LICENSE
 ├── databases
 │   ├── README.md
-│   └── flyway_demo
+│   └── SURVEY
 │       ├── V20200120.1__SCHEMA_DEMO_Create.sql
 │       ├── V20200120.2__TABLE_DEMO.DEMOTABLE_Create.sql
-│       ├── V20200123.1__TABLE_DEMO.DEMOTABLE_Alter.sql
-│       └── view
-│           └── R__VIEW_DEMO.V_DEMOVIEW.sql
-└── templates
-    ├── README.md
-    ├── TaskGroups
-    ├── VariableGroups
-    │   ├── Classic
-    │   │   └── Snowflake.Database.env      <- Variable group for Classic pipeline
-    │   └── YAML
-    │       └── Snowflake.Database.env      <- Variable group for YAML pipeline
-    └── YAMLpipelines
-        ├── azure-pipelines.yml             <- YAML pipeline script
-        └── templates
-            ├── snowflakeFlywayBuild.yml    <- YAML pipeline template for snowflake build using flyway
-            └── snowflakeFlywayDeploy.yml   <- YAML pipeline template for snowflake deploy using flyway
+│       └── V20200123.1__TABLE_DEMO.DEMOTABLE_Alter.sql
+│ 
+├── local_setup
+│    ├── README.md
+│    ├── flyway_config.json
+│    └── setup.py
+│
+├── flyway.conf
+└──  requirements.txt
 ```
