@@ -14,6 +14,7 @@ with open(dir_path + os.sep + 'flyway_config.json') as config_file:
 
 dir_path = dir_path.replace("local_setup","")
 
+
 SNOWFLAKE_USER = environ['SF_USER']
 SNOWFLAKE_PWD = environ['SF_PWD']
 SNOWFLAKE_ROLE = environ['SF_ROLE']
@@ -36,7 +37,8 @@ URL = "jdbc:snowflake://{}.snowflakecomputing.com/?db={}&warehouse={}&role={}&au
 
 flyway_conf = """
 # Long properties can be split over multiple lines by ending each line with a backslash
-flyway.locations=filesystem:databases/SURVEY
+flyway.locations=filesystem:sql
+# flyway.locations=filesystem:databases/SURVEY
 flyway.user={}
 flyway.password={}
 flyway.url={}
@@ -56,8 +58,10 @@ def auth():
     return ctx.cursor()
 
 def create_flyway_conf(path, filename, contents):
-    f = open(dir_path + filename,"w+")
+    f = open(dir_path  + os.sep + filename,"w+")
+    print(dir_path  + os.sep + filename)
     f.write(contents)
+    print(contents)
     f.close()
 
 
