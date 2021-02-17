@@ -4,17 +4,20 @@ import logging
 import snowflake.connector
 from snowflake.connector.errors import DatabaseError
 
-# create log file
-logging.basicConfig(level=logging.INFO, filename='app.log', filemode='w', format='%(asctime)s -%(name)s - %(levelname)s - %(message)s')
-#logging.warning('This will get logged to a file')
+# create logger
+logger = logging.getLogger('setup')
+logger.setLevel(logging.DEBUG)
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+logging.basicConfig(format='%(asctime)s -%(name)s - %(levelname)s - %(message)s')
+logger.addHandler(ch)
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 with open(dir_path + os.sep + 'flyway_config.json') as config_file:
     environ = json.load(config_file)
 
+
 dir_path = dir_path.replace("local_setup","")
-
-
 SNOWFLAKE_USER = environ['SF_USER']
 SNOWFLAKE_PWD = environ['SF_PWD']
 SNOWFLAKE_ROLE = environ['SF_ROLE']
@@ -59,31 +62,29 @@ def auth():
 
 def create_flyway_conf(path, filename, contents):
     f = open(dir_path  + os.sep + filename,"w+")
-    print(dir_path  + os.sep + filename)
     f.write(contents)
-    print(contents)
     f.close()
 
 
 def main():
-    logging.info("creating flyway.conf")
-    logging.info("variables set are %s", CONCAT)
+    logger.info("creating flyway.conf")
+    logger.info("variables set are %s", CONCAT)
     conf = create_flyway_conf(path=dir_path,filename="flyway.conf",contents=flyway_conf)
-    if os.path.isfile(dir_path + 'flyway.conf') == True:
-        logging.info("created flyway.conf file")
-        logging.info("preparing local development database  %s.", CLONE_DEV_DATABASE)
+    if os.path.isfile(dir_path + os.sep +  'flyway.conf') == True:
+        logger.info("created flyway.conf file")
+        logger.info("preparing local development database  %s.", CLONE_DEV_DATABASE)
         cs=auth()
         try:
             sql = "DROP DATABASE IF EXISTS {};".format(CLONE_DEV_DATABASE)
             cs.execute(sql)
-            logging.info("queryid %s", cs.sfqid)
-            sql = "CREATE DATABASE {} CLONE {};".format(CLONE_DEV_DATABASE,SNOWFLAKE_DATABASE)
+            logger.info("queryid %s", cs.sfqid)
+            sql = "CREATE DATABASE  {} CLONE {};".format(CLONE_DEV_DATABASE,SNOWFLAKE_DATABASE)
             cs.execute(sql)
-            logging.info("queryid %s", cs.sfqid)
+            logger.info("queryid %s", cs.sfqid)
         finally:
             cs.close()
     else:
-        logging.error("flyway.conf file hasn't been created in root")
+        logger.error("flyway.conf file hasn't been created in root")
             
 main()
 
