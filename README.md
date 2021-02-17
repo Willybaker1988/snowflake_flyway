@@ -204,3 +204,6 @@ git push
 
 6. If all build pass create a PR (Pull Request) to merge your feature branch into the master branch. Add an approver :smile
 
+# Dependencies.
+
+Docker Desktop installed.
