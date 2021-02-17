@@ -141,7 +141,7 @@ docker run --rm -v C:/Users/WilliamBaker_ln8b51m/Projects/snowflake_flyway/datab
 
 ```
 
-# Running Development in Development Environment.
+# Developing in Development Environment.
 
 Once the environment is setup you can develop using flyway and flyway command line arguments.
 
