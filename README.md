@@ -1,7 +1,7 @@
 # Introduction
-This repository contains a flyway project for database migration using Snowflake as the backend.
+The [Snowflake Flway repository](https://github.com/Willybaker1988/snowflake_flyway) contains a flyway project for database migration using Snowflake as the backend.
 
-The project utlizes Docker to build a development environment locally and all other deployments are handled via Azure DevOps.
+The project utilizes Docker to build a development environment locally and all other deployments are handled via Azure DevOps.
 
 The project contains:
 
@@ -12,7 +12,7 @@ The project contains:
 Read about this approach here [Snowflake CI/CD using Flyway and Azure DevOps Pipeline](https://github.com/kulmam92/snowflake_flyway/blob/master/docs/index.md)
 
 # Getting Started
-The below are incldued files.
+The below are included files.
 ```
 
 ├── LICENSE           
@@ -54,14 +54,14 @@ Using this containerized approach we can package our own image which can be buil
 
 ## flyway.conf
 
-flyway.conf holds the configuration for connecting to flyways migrations in the existing database. This will be programttically created as part of the setup.
+flyway.conf holds the configuration for connecting to flyways migrations in the existing database. This will be programmatically created as part of the setup.
 
 
 ## flyway_config.json
 
 The flyway_config.json holds the key values which will be used in the setup.py for creating your development flyway.conf file and snowflake development database. 
 
-Ensure they are updated with valid Snowflake user credentails.
+Ensure they are updated with valid Snowflake user credentials.
 
 
 ```
@@ -87,7 +87,7 @@ created flyway.conf file
 preparing local development database  WILL_BAKER_DEV.
 2021-02-17 09:15:45,704 -setup - INFO - preparing local development database  WILL_BAKER_DEV.
 ```
-3. Run the Docker image to validate connection. This should return an example of the migrations in the development database created, the database can be viewed via snowflake and should follow the naming convention
+3. Run the Docker image to validate the connection. This should return an example of the migrations in the development database created, the database can be viewed via snowflake and should follow the naming convention
 ```
 docker run --rm -v  snowflakeflyway:latest 
 
@@ -113,7 +113,7 @@ docker run --rm -v  snowflakeflyway:latest
 +------------+--------------+----------------------------+------+---------------------+---------+
 
 ```
-4. Mount migrations. To develop against our database we need mount our SQL migrations locally to the container, to do this we can run the following command. This now validates the mounted migrations against the development database, if you compare the output in steps 3 & 4 the states now show as success.
+4. Mount migrations. To develop against our database we need to mount our SQL migrations locally to the container, to do this we can run the following command. This now validates the mounted migrations against the development database, if you compare the output in steps 3 & 4 the states now show as a success.
 ```   
 docker run --rm -v C:/Users/WilliamBaker_ln8b51m/Projects/snowflake_flyway/databases/SURVEY:/flyway/sql snowflakeflyway:latest
 
@@ -143,7 +143,7 @@ docker run --rm -v C:/Users/WilliamBaker_ln8b51m/Projects/snowflake_flyway/datab
 
 # Developing in Development Environment.
 
-Once the environment is setup you can develop using flyway and flyway command line arguments.
+Once the environment is set up you can develop using flyway and flyway command line arguments.
 
 We will develop locally against a git branch then push the branch to our repository once our development is complete.
 
@@ -191,7 +191,7 @@ docker run --rm -v C:/Users/WilliamBaker_ln8b51m/Projects/snowflake_flyway/datab
 
 ``` 
 
-4. Commit & push the code when you have validated the migrations run in container and the migrations are applied in the development database.
+4. Commit & push the code when you have validated the migrations run in the container and the migrations are applied in the development database.
 
 
 ``` 
@@ -202,7 +202,7 @@ git push
 
 5. Monitor the CI/CD pipeline through Azure DevOps.
 
-6. If all build pass create a PR (Pull Request) to merge your feature branch into the master branch. Add an approver :smile
+6. If all build pass create a PR (Pull Request) to merge your feature branch into the master branch. Add an approver :)
 
 # Dependencies.
 
