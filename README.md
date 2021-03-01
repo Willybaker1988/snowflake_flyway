@@ -1,3 +1,5 @@
+[![Board Status](https://dev.azure.com/WillBaker0958/df8286ba-4441-40d5-af62-62c7bf9a1944/55668ebd-6ad9-4f04-97f9-d09566e177b6/_apis/work/boardbadge/cdcf9c34-f471-453e-8b96-dd57bf0bd91d)](https://dev.azure.com/WillBaker0958/df8286ba-4441-40d5-af62-62c7bf9a1944/_boards/board/t/55668ebd-6ad9-4f04-97f9-d09566e177b6/Microsoft.RequirementCategory)
+
 # Introduction
 The [Snowflake Flway repository](https://github.com/Willybaker1988/snowflake_flyway) contains a flyway project for database migration using Snowflake as the backend.
 
