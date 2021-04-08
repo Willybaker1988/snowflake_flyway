@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "SF_USER":"WILL_BAKER",
     "SF_PWD":"Leicester1!",
+=======
+    "SF_USER":"xxxx",
+    "SF_PWD":"xxxx!",
+>>>>>>> 3697684023c7b3fd4db4423114d9759bee0e2207
     "SF_ROLE":"SYSADMIN",
     "SF_WH":"LOAD_WH"
 }
